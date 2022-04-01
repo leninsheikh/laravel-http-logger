@@ -2,6 +2,10 @@
 
 namespace Leninsheikh\LaravelHttpLogger\Providers;
 
+use Illuminate\Http\Client\Events\RequestSending;
+use Illuminate\Http\Client\Events\ResponseReceived;
+use Leninsheikh\LaravelHttpLogger\Listeners\LogRequestReceiving;
+use Leninsheikh\LaravelHttpLogger\Listeners\LogRequestSending;
 use Leninsheikh\LaravelHttpLogger\Services\DiscoverEvents;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -13,7 +17,14 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [];
+    protected $listen = [
+        RequestSending::class => [
+            LogRequestSending::class
+        ],
+        ResponseReceived::class => [
+            LogRequestReceiving::class
+        ],
+    ];
 
     /**
      * The subscriber classes to register.
