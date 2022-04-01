@@ -1,6 +1,7 @@
 {
     "name": "leninsheikh/laravel-http-logger",
     "type": "library",
+    "version": "0.0.1",
     "license": "mit",
     "autoload": {
         "psr-4": {
@@ -15,7 +16,8 @@
     ],
     "require": {
         "illuminate/support": ">=8",
-        "illuminate/http": ">=8"
+        "illuminate/http": ">=8",
+        "illuminate/database": ">=8"
     },
     "config": {
         "sort-packages": true
