@@ -1,7 +1,7 @@
 <?php
 namespace Leninsheikh\LaravelHttpLogger\Listeners;
 
-use LeninSheikh\LaravelHttpLogger\Services\HttpLoggerService;
+use Leninsheikh\LaravelHttpLogger\Services\HttpLoggerService;
 use Illuminate\Http\Client\Events\RequestSending;
 
 class LogRequestSending

@@ -2,7 +2,7 @@
 namespace Leninsheikh\LaravelHttpLogger\Listeners;
 
 use Illuminate\Http\Client\Events\ResponseReceived;
-use LeninSheikh\LaravelHttpLogger\Services\HttpLoggerService;
+use Leninsheikh\LaravelHttpLogger\Services\HttpLoggerService;
 
 class LogRequestReceiving
 {
