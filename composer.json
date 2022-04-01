@@ -1,0 +1,30 @@
+{
+    "name": "leninsheikh/laravel-http-logger",
+    "type": "library",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Leninsheikh\\LaravelHttpLogger\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lenin Sheikh",
+            "email": "justtlenin@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": ">=8",
+        "illuminate/http": ">=8"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Leninsheikh\\LaravelHttpLogger\\LaravelHttpLoggerServiceProvider"
+            ]
+        }
+    }
+}
