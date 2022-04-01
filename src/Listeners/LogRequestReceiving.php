@@ -2,7 +2,7 @@
 namespace Leninsheikh\LaravelHttpLogger\Listeners;
 
 use Illuminate\Http\Client\Events\ResponseReceived;
-use LeninSheikh\LaravelHttpLogger\Services\HTTPLoggerService;
+use LeninSheikh\LaravelHttpLogger\Services\HttpLoggerService;
 
 class LogRequestReceiving
 {
@@ -14,6 +14,6 @@ class LogRequestReceiving
      */
     public function handle(ResponseReceived $event)
     {
-        (new HTTPLoggerService())->update($event);
+        (new HttpLoggerService())->update($event);
     }
 }

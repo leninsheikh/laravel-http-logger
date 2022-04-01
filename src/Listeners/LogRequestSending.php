@@ -1,7 +1,7 @@
 <?php
 namespace Leninsheikh\LaravelHttpLogger\Listeners;
 
-use LeninSheikh\LaravelHttpLogger\Services\HTTPLoggerService;
+use LeninSheikh\LaravelHttpLogger\Services\HttpLoggerService;
 use Illuminate\Http\Client\Events\RequestSending;
 
 class LogRequestSending
@@ -14,6 +14,6 @@ class LogRequestSending
      */
     public function handle(RequestSending $event)
     {
-        (new HTTPLoggerService())->create($event->request);
+        (new HttpLoggerService())->create($event->request);
     }
 }

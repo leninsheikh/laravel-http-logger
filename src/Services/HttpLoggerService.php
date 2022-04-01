@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 /**
  *
  */
-class HTTPLoggerService
+class HttpLoggerService
 {
     /**
      *
