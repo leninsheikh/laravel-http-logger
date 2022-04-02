@@ -1,4 +1,5 @@
 <?php
+
 namespace Leninsheikh\LaravelHttpLogger\Listeners;
 
 use Illuminate\Http\Client\Events\ResponseReceived;

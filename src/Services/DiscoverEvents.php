@@ -1,4 +1,5 @@
-<?php
+<?php #phpcs:disable
+
 
 namespace Leninsheikh\LaravelHttpLogger\Services;
 

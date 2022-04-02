@@ -1,11 +1,11 @@
 <?php
+
 namespace Leninsheikh\LaravelHttpLogger\Services;
 
 use Illuminate\Http\Client\Events\ResponseReceived;
-use \Illuminate\Http\Client\Request;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-
 
 /**
  *
@@ -15,11 +15,11 @@ class HttpLoggerService
     /**
      *
      */
-    const LOGGER_NAME = 'lnn_http_logger_name';
+    public const LOGGER_NAME = 'lnn_http_logger_name';
     /**
      *
      */
-    const LOGGER_ID = 'lnn_http_logger_id';
+    public const LOGGER_ID = 'lnn_http_logger_id';
 
     /**
      * saving log
@@ -78,5 +78,4 @@ class HttpLoggerService
         parse_str(optional($parts)['query'], $query);
         return optional($query)[$key];
     }
-
 }

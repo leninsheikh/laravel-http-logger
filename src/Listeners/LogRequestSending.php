@@ -1,4 +1,5 @@
 <?php
+
 namespace Leninsheikh\LaravelHttpLogger\Listeners;
 
 use Leninsheikh\LaravelHttpLogger\Services\HttpLoggerService;
