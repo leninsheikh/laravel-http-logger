@@ -5,6 +5,7 @@ namespace Leninsheikh\LaravelHttpLogger\Providers;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Leninsheikh\LaravelHttpLogger\Services\HttpLoggerService;
 
 class LaravelHttpLoggerServiceProvider extends ServiceProvider
 {
@@ -30,8 +31,8 @@ class LaravelHttpLoggerServiceProvider extends ServiceProvider
             $key = Str::uuid()->toString();
 
             return Http::withOptions(['query' => [
-                'lnn_http_logger_key' => $key,
-                'lnn_http_logger_name' => $name,
+                HttpLoggerService::LOGGER_ID => $key,
+                HttpLoggerService::LOGGER_NAME => $name,
             ]]);
         });
     }

@@ -15,11 +15,11 @@ class HttpLoggerService
     /**
      *
      */
-    const QUERY_LOGGER_TYPE = 'hd_logger_type';
+    const LOGGER_NAME = 'lnn_http_logger_name';
     /**
      *
      */
-    const QUERY_LOGGER_KEY = 'hd_logger_key';
+    const LOGGER_ID = 'lnn_http_logger_id';
 
     /**
      * saving log
@@ -28,11 +28,11 @@ class HttpLoggerService
      */
     public function create(Request $request)
     {
-        $key = $this->getQuery($request->url(), self::QUERY_LOGGER_KEY);
+        $key = $this->getQuery($request->url(), self::LOGGER_ID);
         if ($key) {
             $data =  [
                 'created_at' => Carbon::now()->toDateTimeString(),
-                'type' => $this->getQuery($request->url(), self::QUERY_LOGGER_TYPE),
+                'name' => $this->getQuery($request->url(), self::LOGGER_NAME),
                 'key' => $key,
                 'url' => $request->url(),
                 'method' => $request->method(),
@@ -50,7 +50,7 @@ class HttpLoggerService
      */
     public function update(ResponseReceived $received)
     {
-        $key = $this->getQuery($received->request->url(), self::QUERY_LOGGER_KEY);
+        $key = $this->getQuery($received->request->url(), self::LOGGER_ID);
 
         if ($key) {
             $body = json_decode($received->response->body(), true);
