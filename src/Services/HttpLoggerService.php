@@ -6,6 +6,7 @@ use Illuminate\Http\Client\Events\ResponseReceived;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 /**
  *
@@ -28,11 +29,13 @@ class HttpLoggerService
      */
     public function create(Request $request)
     {
-        $key = $this->getQuery($request->url(), self::LOGGER_ID);
+        $key = $request->header(self::LOGGER_ID)[0] ?? null;
+        $name = $request->header(self::LOGGER_NAME)[0] ?? $request->url();
+
         if ($key) {
             $data =  [
                 'created_at' => Carbon::now()->toDateTimeString(),
-                'name' => $this->getQuery($request->url(), self::LOGGER_NAME),
+                'name' => $name,
                 'key' => $key,
                 'url' => $request->url(),
                 'method' => $request->method(),
@@ -50,7 +53,7 @@ class HttpLoggerService
      */
     public function update(ResponseReceived $received)
     {
-        $key = $this->getQuery($received->request->url(), self::LOGGER_ID);
+        $key = $received->request->header(self::LOGGER_ID)[0] ?? null;
 
         if ($key) {
             $body = json_decode($received->response->body(), true);

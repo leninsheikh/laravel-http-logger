@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAPILogsTable extends Migration
+class CreateLnnHttpLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAPILogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('laravel_http_logs', function (Blueprint $table) {
+        Schema::create('lnn_http_logs', function (Blueprint $table) {
             $table->id();
             $table->string('key', 150);
             $table->string('name', 60);
@@ -35,6 +35,6 @@ class CreateAPILogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laravel_http_logs');
+        Schema::dropIfExists('lnn_http_logs');
     }
 }

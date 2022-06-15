@@ -24,15 +24,20 @@ class LaravelHttpLoggerServiceProvider extends ServiceProvider
         $this->bootHttpMacro();
     }
 
+    /**
+     * Bootstrap the http macro
+     *
+     * @return void
+     */
     private function bootHttpMacro()
     {
         Http::macro('withLogging', function ($name) {
             $key = Str::uuid()->toString();
 
-            return Http::withOptions(['query' => [
+            return Http::withHeaders([
                 HttpLoggerService::LOGGER_ID => $key,
                 HttpLoggerService::LOGGER_NAME => $name,
-            ]]);
+            ]);
         });
     }
 }
