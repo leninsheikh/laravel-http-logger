@@ -42,7 +42,7 @@ class HttpLoggerService
                 'request_header' => json_encode($request->headers()),
                 'request_body' => empty($request->body()) ? null : $request->body(),
             ];
-            DB::table('laravel_http_logs')->insert($data);
+            DB::table('lnn_http_logs')->insert($data);
         }
     }
 
@@ -63,7 +63,7 @@ class HttpLoggerService
                 'response_status' => $received->response->status(),
             ];
 
-            DB::table('laravel_http_logs')->where('key', $key)->update($data);
+            DB::table('lnn_http_logs')->where('key', $key)->update($data);
         }
     }
 
